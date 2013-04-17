@@ -12,22 +12,11 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <style>
-
-    /* GLOBAL STYLES
-    -------------------------------------------------- */
-    /* Padding below the footer and lighter body text */
-
     body {
       padding-bottom: 40px;
       color: #5a5a5a;
     }
 
-
-
-    /* CUSTOMIZE THE NAVBAR
-    -------------------------------------------------- */
-
-    /* Special class on .container surrounding .navbar, used for positioning it into place. */
     .navbar-wrapper {
       position: absolute;
       top: 0;
@@ -37,11 +26,7 @@
       margin-top: 20px;
       margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
     }
-    .navbar-wrapper .navbar {
 
-    }
-
-    /* Remove border and change up box shadow for more contrast */
     .navbar .navbar-inner {
       border: 0;
       -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
@@ -49,7 +34,6 @@
               box-shadow: 0 2px 10px rgba(0,0,0,.25);
     }
 
-    /* Downsize the brand/project name a bit */
     .navbar .brand {
       padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
       font-size: 16px;
@@ -57,22 +41,14 @@
       text-shadow: 0 -1px 0 rgba(0,0,0,.5);
     }
 
-    /* Navbar links: increase padding for taller navbar */
     .navbar .nav > li > a {
       padding: 15px 20px;
     }
 
-    /* Offset the responsive button for proper vertical alignment */
     .navbar .btn-navbar {
       margin-top: 10px;
     }
 
-
-
-    /* CUSTOMIZE THE CAROUSEL
-    -------------------------------------------------- */
-
-    /* Carousel base class */
     .carousel {
       margin-bottom: 60px;
     }
@@ -121,27 +97,6 @@
       margin-top: 10px;
     }
 
-
-
-    /* MARKETING CONTENT
-    -------------------------------------------------- */
-
-    /* Center align the text within the three columns below the carousel */
-    .marketing .span4 {
-      text-align: center;
-    }
-    .marketing h2 {
-      font-weight: normal;
-    }
-    .marketing .span4 p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-
-    /* Featurettes
-    ------------------------- */
-
     .featurette-divider {
       margin: 80px 0; /* Space out the Bootstrap <hr> more */
     }
@@ -149,18 +104,12 @@
       overflow: hidden; /* Vertically center images part 2: clear their floats. */
     }
 
-    /* Thin out the marketing headings */
     .featurette-heading {
       font-size: 50px;
       font-weight: 300;
       line-height: 1;
       letter-spacing: -1px;
     }
-
-
-
-    /* RESPONSIVE CSS
-    -------------------------------------------------- */
 
     @media (max-width: 979px) {
 
@@ -194,6 +143,10 @@
       }
     }
 
+		footer {
+			border-top: 1px solid #EEE;
+			padding: 1em 0.5em;
+		}
 
     @media (max-width: 767px) {
 
@@ -247,7 +200,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="ico/favicon.png">
   </head>
 
   <body>
@@ -259,9 +211,9 @@
             <a class="brand" href="#">Hackeriet Nettlaug</a>
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contact</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div><!-- /.navbar-inner -->
@@ -270,51 +222,30 @@
       </div> <!-- /.container -->
     </div><!-- /.navbar-wrapper -->
 
+		<esi:choose>
+			<esi:when test="$(HTTP_COOKIE{Filename}) == '/index'">
+				<div id="myCarousel" class="carousel slide">
+					<div class="carousel-inner">
+							<esi:include src="/dist/slides/1.html" />
+							<esi:include src="/dist/slides/2.html" />
+					</div>
 
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+				</div><!-- /.carousel -->
+			</esi:when>
+		</esi:choose>
 
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="img/c1.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>We got servaz.</h1>
-              <p class="lead">Cheap co-location and dedicated servers in the hear of Oslo.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="img/c2.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>We got servaz.</h1>
-              <p class="lead">Cheap co-location and dedicated servers in the hear of Oslo.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
     <div class="container">
 
-      <div class="featurette">
-        <h2 class="featurette-heading">Buy buy buy. <span class="muted">It'll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-
-      <hr class="featurette-divider">
+			<esi:include src="/dist/page/404.html" onerror="/dist/page/404.html" />
 
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; Copyleft, do whatever you want..., but be nice :)</p>
       </footer>
 
-    </div><!-- /.container -->
+    </div>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
