@@ -1,10 +1,10 @@
-<!--# if expr="$file = index.html" -->
-      <!--# set var="file" value="index" -->
-<!--# elif expr="$file = /" -->
-      <!--# set var="file" value="index" -->
-<!--# endif -->
 <!DOCTYPE html>
 <html lang="en">
+  <!--# if expr="$file = index.html" -->
+        <!--# set var="file" value="index" -->
+  <!--# elif expr="$file = /" -->
+        <!--# set var="file" value="index" -->
+  <!--# endif -->
   <head>
     <meta charset="utf-8">
     <title>Hackeriet Nettlaug</title>
@@ -14,11 +14,18 @@
 
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
     <style>
     body {
       padding-bottom: 40px;
       color: #5a5a5a;
+    }
+
+    body > .container, body > .container-fluid {
+      margin-top: 100px;
+    }
+
+    #myCarousel + .container, #myCarousel + .container {
+      margin-top: 0px;
     }
 
     .navbar-wrapper {
@@ -57,7 +64,7 @@
       margin-bottom: 60px;
     }
 
-    .carousel .container {
+    .carousel .container, .carousel .fluid-container {
       position: relative;
       z-index: 9;
     }
@@ -75,6 +82,7 @@
     .carousel .item {
       height: 500px;
     }
+
     .carousel img {
       position: absolute;
       top: 0;
@@ -90,13 +98,14 @@
       padding: 0 20px;
       margin-top: 200px;
     }
-    .carousel-caption h1,
-    .carousel-caption .lead {
+
+    .carousel-caption h1, .carousel-caption .lead {
       margin: 0;
       line-height: 1.25;
       color: #fff;
       text-shadow: 0 1px 1px rgba(0,0,0,.4);
     }
+
     .carousel-caption .btn {
       margin-top: 10px;
     }
@@ -104,6 +113,7 @@
     .featurette-divider {
       margin: 80px 0; /* Space out the Bootstrap <hr> more */
     }
+
     .featurette {
       overflow: hidden; /* Vertically center images part 2: clear their floats. */
     }
@@ -115,100 +125,17 @@
       letter-spacing: -1px;
     }
 
-    @media (max-width: 979px) {
-
-      .container.navbar-wrapper {
-        margin-bottom: 0;
-        width: auto;
-      }
-      .navbar-inner {
-        border-radius: 0;
-        margin: -20px 0;
-      }
-
-      .carousel .item {
-        height: 500px;
-      }
-      .carousel img {
-        width: auto;
-        height: 500px;
-      }
-
-      .featurette {
-        height: auto;
-        padding: 0;
-      }
-      .featurette-image.pull-left,
-      .featurette-image.pull-right {
-        display: block;
-        float: none;
-        max-width: 40%;
-        margin: 0 auto 20px;
-      }
-    }
-
-		footer {
-			border-top: 1px solid #EEE;
-			padding: 1em 0.5em;
-		}
-
-    @media (max-width: 767px) {
-
-      .navbar-inner {
-        margin: -20px;
-      }
-
-      .carousel {
-        margin-left: -20px;
-        margin-right: -20px;
-      }
-      .carousel .container {
-
-      }
-      .carousel .item {
-        height: 300px;
-      }
-      .carousel img {
-        height: 300px;
-      }
-      .carousel-caption {
-        width: 65%;
-        padding: 0 70px;
-        margin-top: 100px;
-      }
-      .carousel-caption h1 {
-        font-size: 30px;
-      }
-      .carousel-caption .lead,
-      .carousel-caption .btn {
-        font-size: 18px;
-      }
-
-      .marketing .span4 + .span4 {
-        margin-top: 40px;
-      }
-
-      .featurette-heading {
-        font-size: 30px;
-      }
-      .featurette .lead {
-        font-size: 18px;
-        line-height: 1.5;
-      }
-
+    footer {
+      border-top: 1px solid #EEE;
+      padding: 1em 0.5em;
     }
     </style>
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
   </head>
 
   <body>
     <div class="navbar-wrapper">
-      <div class="container">
+      <div class="container-fluid">
 
         <div class="navbar navbar-inverse">
           <div class="navbar-inner">
@@ -240,7 +167,7 @@
 
       <!--# endif -->
 
-    <div class="container">
+    <div class="container-fluid">
 
       <!--# block name="404" -->
         <div class="featurette">
