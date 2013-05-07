@@ -1,4 +1,8 @@
-
+<!--# if expr="$file = index.html" -->
+      <!--# set var="file" value="index" -->
+<!--# elif expr="$file = /" -->
+      <!--# set var="file" value="index" -->
+<!--# endif -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,8 +13,8 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
     <style>
     body {
       padding-bottom: 40px;
@@ -222,23 +226,33 @@
       </div> <!-- /.container -->
     </div><!-- /.navbar-wrapper -->
 
-		<esi:choose>
-			<esi:when test="$(HTTP_COOKIE{Filename}) == '/index'">
-				<div id="myCarousel" class="carousel slide">
-					<div class="carousel-inner">
-							<esi:include src="/dist/slides/1.html" />
-							<esi:include src="/dist/slides/2.html" />
-					</div>
+      <!--# if expr="$file = index" --> 
 
-					<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-					<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-				</div><!-- /.carousel -->
-			</esi:when>
-		</esi:choose>
+        <div id="myCarousel" class="carousel slide">
+          <div class="carousel-inner">
+            <!--# include virtual="dist/slides/1.html" -->
+            <!--# include virtual="dist/slides/2.html" -->
+          </div>
+          
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+
+      <!--# endif -->
 
     <div class="container">
 
-			<esi:include src="/dist/page/404.html" onerror="/dist/page/404.html" />
+      <!--# block name="404" -->
+        <div class="featurette">
+          <h2 class="featurette-heading">Oh noooooess! <span class="muted">sssh, i'm hiding.</span></h2>
+          <p class="lead">
+            It seems your playing hide n' seek with the requested page.
+            You should look somewhere else!
+          </p>
+        </div>
+      <!--# endblock --> 
+
+      <!--# include virtual="dist/page/$file.html" stub="404" -->
 
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
